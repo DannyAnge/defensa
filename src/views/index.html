@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inicio de sesion | Dream Angel Shop</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% if(message){ %>
+      <div class="row mt-2">
+        <div class="col-10 col-md-6 col-lg-4 mx-auto">
+          <div
+            class="alert alert-danger alert-dismissable fade show alerta-login"
+            role="alert"
+            id="<%= message %>"
+          >
+            <%= message %>
+            <button class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <div class="row mt-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Inicio de sesion</h5>
+            </div>
+            <div class="card-body">
+              <form action="/login" method="POST">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="userName"
+                    id=""
+                    class="form-control"
+                    placeholder="Usuario"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="password"
+                    id=""
+                    class="form-control"
+                    placeholder="Contrasena"
+                  />
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block">Acceder</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

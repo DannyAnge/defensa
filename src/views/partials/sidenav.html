@@ -1,0 +1,67 @@
+ <!-- Sidenav -->
+ <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <span class="ni ni-ui-04" style="font-size: 40px;"></span>
+          <div><%= user.nombreUsuario %> </div>
+        </a>
+      </div>
+      <!-- <div class="col-auto">
+          <button class="btn btn-icon btn-primary icon icon-shape" type="button" data-toggle="tooltip" data-original-title="Cerrar sesion" style="height: 35px;width: 35px;">
+            <span class="btn-inner--icon"><i class="ni ni-lock-circle-open"></i></span>
+          </button>
+      </div> -->
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item option-active" id="opcion-facturacion">
+              <a class="nav-link" href="#/">
+                <i class="ni ni-credit-card text-orange"></i>
+                <span class="nav-link-text">Facturacion</span>
+              </a>
+            </li>
+            <li class="nav-item" id="opcion-reportes">
+              <a class="nav-link" href="#/Reportes">
+                <i class="ni ni-collection text-primary"></i>
+                <span class="nav-link-text">Reportes</span>
+              </a>
+            </li>
+            <li class="nav-item" id="opcion-inventario">
+              <a class="nav-link" href="#/inventario">
+                <i class="ni ni-laptop text-yellow"></i>
+                <span class="nav-link-text">Inventario</span>
+              </a>
+            </li>
+            <% if(user.permiso == 'Admin'){ %>
+            <li class="nav-item" id="opcion-usuarios">
+              <a class="nav-link" href="#/usuarios">
+                <i class="ni ni-single-02 text-default"></i>
+                <span class="nav-link-text">Usuarios</span>
+              </a>
+            </li>
+            <li class="nav-item" id="opcion-transacciones">
+              <a class="nav-link nav-link-transacciones" href="#/transacciones">
+                <i class="ni ni-key-25 text-info"></i>
+                <span class="nav-link-text">transacciones</span>
+              </a>
+            </li>
+            <li class="nav-item" id="opcion-perfil">
+              <a class="nav-link" href="#/perfil">
+                <i class="ni ni-money-coins text-pink"></i>
+                <span class="nav-link-text">Perfil</span>
+              </a>
+            </li>
+            <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">
+                <i class="ni ni-archive-2 text-dark"></i>
+                <span class="nav-link-text">Cerrar sesion</span>
+              </a>
+            </li>
+          </ul>
+</nav>
+

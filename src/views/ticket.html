@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Ticket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/ticket.css" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      * {
+          font-size: 12px;
+          font-family: 'Times New Roman';
+        }
+        .hide{
+            display: none;
+        }
+
+        .show{
+            display: block;
+        }
+
+        .both_border {
+            border-top: 1px dotted  black;
+            border-bottom: 1px dotted  black;
+          
+        }
+
+        td.description,
+        th.description {
+            width: 30mm;
+            max-width: 30mm;
+        }
+
+        td.quantity,
+        th.quantity {
+            width: 10mm;
+            max-width: 10mm;
+            word-break: break-all;
+          text-align:center;
+        }
+
+        td.price,
+        th.price {
+            width: 20mm;
+            max-width: 20mmpx;
+            word-break: break-all;
+          text-align:right;
+        }
+
+        .centered {
+            text-align: center;
+            align-content: center;
+        }
+
+        .ticket {
+            width: 60mm;
+            max-width: 60mm;
+        }
+
+        td.totales {
+            font-size: 15px;
+        }
+
+
+        img {
+            max-width: inherit;
+            width: inherit;
+        }
+
+        @media print {
+            .hidden-print,
+            .hidden-print * {
+                display: none !important;
+            }
+        }
+
+    </style>
+   <div class="ticket">
+     <p class="centered"> 
+        <h6 style="text-align: center;"><%= perfil[0].nombre %></h6>
+        <br><strong>Teléfono :</strong> <%= perfil[0].telefono %> 
+        <br><strong>Dirección: </strong> <%= perfil[0].direccion %>  
+				<br><strong>Fecha: </strong><%= fecha %> 
+				<br><strong>Ticket Nº: </strong> <%= factura %>  
+			</p>
+      <p>
+				<strong>Cliente :</strong> <%= comprador  %>  
+			</p>
+      <table>
+        <thead>
+           <tr >
+              <th class="quantity both_border">Cant.</th>
+              <th class="description both_border">Descripción</th>
+              <th class="price both_border">Total</th>
+           </tr>
+        </thead>
+        <tbody>      
+          <% var total = 0.0; %> 
+          <% detalles.forEach(dato=>{ %> 
+          <tr>
+            <td class="quantity"><%= dato.cantidadProducto %> </td>
+            <td class="description"><%= dato.productoName  %> </td>
+            <td class="price"><%= parseFloat(dato.totalVenta).toFixed(2) %> </td>
+            <% total += parseFloat(dato.totalVenta) %> 
+          </tr>
+            <% }) %> 
+          <tr>
+            <th class="price totales both_border" colspan=3>
+               TOTAL IMPORTE C$ <%- total.toFixed(2) %>  
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <p class="centered">
+        <%= perfil[0].mensaje %> 
+       <br>
+      </p>
+      <br>
+      <button id="impimirTicket">Imprimir</button>
+      <button id="cerrarTicket" onclick="window.close()">Cerrar</button>
+   </div> 
+   <script>
+    document.getElementById('impimirTicket').addEventListener('click',()=>{
+      document.getElementById('impimirTicket').classList.toggle('hide');
+      document.getElementById('cerrarTicket').classList.toggle('hide');
+      window.print();
+      document.getElementById('impimirTicket').classList.toggle('show');
+      document.getElementById('cerrarTicket').classList.toggle('show');
+    })          
+   </script>
+  </body>
+</html>

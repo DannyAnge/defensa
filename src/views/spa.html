@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/header.html') %>
+  <body>
+    <!-- SideNav -->
+    <%- include('partials/sidenav.html') %>
+
+    <!-- Content -->
+    <div class="main-content" id="panel">
+      <!-- FACTURACION -->
+      <%- include('partials/_facturacion.html') %>
+
+      <!-- REPORTES -->
+      <%- include('partials/_reportes.html') %>
+
+      <!-- INVENTARIO -->
+      <%- include('partials/_inventario.html') %>
+
+      <!-- USUARIOS -->
+      <%- include('partials/_usuarios.html') %>
+
+      <!-- TRANSACCIONES -->
+      <%- include('partials/_transacciones.html') %>
+
+      <!-- PERFIL -->
+      <%- include('partials/_perfil.html') %>
+    </div>
+
+    <!-- MODALES -->
+    <%- include('partials/_modalProductosFacturacion.html') %> <%-
+    include('partials/_modalFacturaPDF.html') %> <%-
+    include('partials/_modalDetalles.html') %> <%-
+    include('partials/_modalCategorias.html') %> <%-
+    include('partials/_modalMarcas.html') %>
+    <%- include('partials/modalAgregarProducto.html')  %> 
+    <%- include('partials/_modalMinStock.html')  %> 
+
+    <!-- footer -->
+    <%- include('partials/footer.html') %>
+    <script src="js/spa.js"></script>
+    <script src="js/facturacion.js" type="module"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/categorias.js"></script>
+    <script src="js/marcas.js"></script>
+    <script src="js/reportes.js"></script>
+    <script src="js/transacciones.js"></script>
+    <script src="js/perfil.js"></script>
+    <script src="js/usuarios.js"></script>
+  </body>
+</html>

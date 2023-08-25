@@ -1,0 +1,172 @@
+<div class="main-content show" id="view-facturacion">
+  <!-- Topnav -->
+  
+  <!-- Header -->
+  <!-- Header -->
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Facturacion</h6>
+          </div>
+        </div>
+        <!-- Card stats -->
+        <div class="row"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <!-- DATOS GENERALES DE FACTURA -->
+      <div class="col-xl-10">
+        <div class="card bg-white">
+          <div class="card-header bg-transparent">
+            <div class="row align-items-center">
+              <div class="col">
+                <h6 class="text-black text-uppercase ls-1 mb-1">
+                  Agregar datos de factura
+                </h6>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <form action="" id="form-datos-facturacion" class="form-group row">
+              <input
+                type="text"
+                class="form-control col-2"
+                name="numero"
+                id="numeroFactura"
+                placeholder="N° Factura"
+                style="margin-top: 6px"
+                disabled
+              />
+              <input
+                type="date"
+                name="fecha"
+                class="form-control col-3"
+                id="fechaFactura"
+                placeholder=""
+                style="margin-top: 6px"
+              />
+
+              <input
+                type="text"
+                class="form-control col-3"
+                name="comprador"
+                id=""
+                placeholder="Comprador"
+                style="margin-top: 6px"
+              />
+
+              <select
+                name="formaPago"
+                class="form-control col-3"
+                id=""
+                style="margin-top: 6px"
+                title="forma de pago"
+              >
+                <option value="1">Efectivo</option>
+                <option value="2">Tarjeta</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TABLA DE DETALLES DE FACTURA -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-header">
+          <div class="col">
+            <h6 class="text-black text-uppercase ls-1 mb-1">
+              Datos Generales de facturas
+            </h6>
+          </div>
+          <!-- FORMULARIO PARA CODIGO DE BARRA -->
+          <div class="card-body">
+            <form action="" id="form-facturacion" class="form-group row">
+              <input
+                type="varchar"
+                class="form-control col-3"
+                name="codigoBarraFacturacion"
+                id=""
+                placeholder="Codigo de barra"
+              />
+              <button
+                type="button"
+                id="btnAgregarProductoFactura"
+                class="btn-1 btn btn-xs btn btn-secondary"
+              >
+                Agregar
+              </button>
+              <button
+                type="button"
+                id="btnMostrarProductosFacturacion"
+                class="btn-1 btn btn-xs btn btn-secondary"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Buscar
+              </button>
+              <button
+                type="button"
+    id="btnLimpiarFactura"
+                class="btn-1 btn btn-xs btn btn-secondary"
+              >
+                Limpiar
+              </button>
+              <button
+                type="button"
+                id="btnGuardarFactura"
+                class="btn-1 btn btn-xs btn btn-success"
+              >
+                Cobrar e Imprimir
+              </button>
+            </form>
+            <div>Total C$ <b id="totalFactura">0.00</b></div>
+          </div>
+          <div class="table-responsive">
+            <table
+              id="example"
+              class="table table-striped table-bordered"
+              style="width: 100%"
+            >
+              <thead>
+                <tr>
+                  <th>Acciones</th>
+                  <th>Cod Barra</th>
+                  <th>Cantidad</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Importe</th>
+                </tr>
+              </thead>
+              <tbody id="table-facturacion"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    
+  </div>
+</div>
+<style>
+  .form-group input {
+    margin: 5px;
+  }
+
+  .btn-1 {
+    height: 40px;
+    top: 10px;
+  }
+
+  .btn1-1 {
+    left: 5px;
+    height: 40px;
+    top: 10px;
+  }
+</style>
