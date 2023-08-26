@@ -48,6 +48,8 @@ const guardarFactura = async (req, res) => {
       factura,
     ]);
 
+    numeroFactura = resFactura.insertId;
+
 
     for (let i = 0; i < detalles.length; i++) {
       const element = detalles[i];
@@ -59,10 +61,6 @@ const guardarFactura = async (req, res) => {
         totalVenta: element.totalVenta,
       }]);
 
-      console.log('resDetalles : ' + resDetalles.affectedRows)
-
-      await conn.query('UPDATE productos SET stock = stock - ? WHERE id = ?',[element.cantidadProducto, element.producto])
-
       const resVenderId = await conn.query("call venderId(?,?)", [
         element.producto,
         element.cantidadProducto,
@@ -70,8 +68,9 @@ const guardarFactura = async (req, res) => {
 
     }
     await conn.commit();
-    res.send({ factura: resFactura.insertId + 1 });
+    res.send({ factura : resFactura.insertId + 1, message:'Exito' });
   } catch (error) {
+    res.send({ message : 'Oops.. Ocurrio un error al intentar guardar la factura. puede que uno de los productos esten con stock 0.' });
     await conn.rollback()
     console.log(error);
   } finally {

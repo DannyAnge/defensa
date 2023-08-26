@@ -88,29 +88,27 @@ class Facturacion {
     })
       .then((message) => message.json())
       .then(async (message) => {
-        await swal.fire({
-          title:'Exito',
-          icon: 'success',
-          timer:1000
-        }) 
-        document.getElementById("numeroFactura").value = message.factura;
-        this.limpiar();
-        this.ticket();
-        document.getElementById("fechaFactura").value = this.date;
+        if (message.message !== "Exito") {
+          await swal.fire({
+            title: message.message,
+            icon: message.message === "Exito" ? "success" : "error",
+            timer: message.message === "Exito" ? 1000 : 5000,
+          });
+        }
+
+        if (message.message === "Exito") {
+          document.getElementById("numeroFactura").value = message.factura;
+          this.limpiar();
+          this.ticket();
+          document.getElementById("fechaFactura").value = this.date;
+        }
       })
-      .catch(error=>{
-        console.log(error)
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   limpiar() {
-    this.listaProductos.map((producto) => {
-      this.agregarInventario(
-        producto.producto,
-        document.getElementById(`cantidadProducto${producto.producto}`)
-          .innerText
-      );
-    });
     this.total = 0;
     this.listaIds = [];
     this.listaProductos = [];
@@ -263,26 +261,31 @@ class Facturacion {
     })
       .then((message) => message.json())
       .then((message) => {*/
-          this.cantidad = document.getElementById(
-            `cantidadProducto${this.idproducto}`
-          ).innerText;
-          this.cantidad = parseFloat(this.cantidad) + parseFloat(cantidad);
-          this.precioVenta = document.getElementById(
-            `precio${this.idproducto}`
-          ).innerText;
-          this.importe = this.cantidad * this.precioVenta;
-          document.getElementById("importe" + this.idproducto).innerText =
-            this.importe;
-          document.getElementById(
-            `cantidadProducto${this.idproducto}`
-          ).innerText = this.cantidad;
-          this.calcularTotalFactura();
-        
-      //});
+    this.cantidad = document.getElementById(
+      `cantidadProducto${this.idproducto}`
+    ).innerText;
+    this.cantidad = parseFloat(this.cantidad) + parseFloat(cantidad);
+    this.precioVenta = document.getElementById(
+      `precio${this.idproducto}`
+    ).innerText;
+    this.importe = this.cantidad * this.precioVenta;
+    document.getElementById("importe" + this.idproducto).innerText =
+      this.importe;
+    document.getElementById(`cantidadProducto${this.idproducto}`).innerText =
+      this.cantidad;
+    this.calcularTotalFactura();
+
+    //});
   }
 
   ticket() {
-    window.open("http://localhost:3000/facturacion/ticket");
+    const ven = window.open(
+      "http://localhost:3000/facturacion/ticket",
+      "TICKET",
+      "height=600,width=600"
+    );
+    ven.focus();
+    //ven.close();
   }
 }
 

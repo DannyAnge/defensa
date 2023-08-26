@@ -117,17 +117,18 @@
        <br>
       </p>
       <br>
-      <button id="impimirTicket">Imprimir</button>
-      <button id="cerrarTicket" onclick="window.close()">Cerrar</button>
    </div> 
    <script>
-    document.getElementById('impimirTicket').addEventListener('click',()=>{
+    /*document.getElementById('impimirTicket').addEventListener('click',()=>{
       document.getElementById('impimirTicket').classList.toggle('hide');
       document.getElementById('cerrarTicket').classList.toggle('hide');
       window.print();
       document.getElementById('impimirTicket').classList.toggle('show');
       document.getElementById('cerrarTicket').classList.toggle('show');
-    })          
+    })          */
+    window.onload = function(){
+        window.print();
+      }
    </script>
   </body>
 </html>

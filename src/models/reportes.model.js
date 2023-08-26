@@ -23,10 +23,10 @@ const reporteDiario = async (req, res) => {
 
 const getFacturas = async (req, res) => {
   try {
-    const { fecha } = req.body;
+    const { fecha1, fecha2 } = req.body;
     const facturas = await conexion.query(
-      "SELECT * FROM facturas WHERE DATE(fecha) = ? ORDER BY id DESC",
-      [fecha]
+      "SELECT * FROM facturas WHERE DATE(fecha) BETWEEN ? AND ? ORDER BY id DESC",
+      [fecha1, fecha2]
     );
     res.send(facturas);
   } catch (error) {

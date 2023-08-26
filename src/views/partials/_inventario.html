@@ -1,7 +1,49 @@
 <!-- Main content -->
 <div class="main-content hide" id="view-inventario">
   <!-- Topnav -->
-  
+  <nav
+    class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom"
+  >
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Search form -->
+        <!-- Navbar links -->
+        <ul class="navbar-nav align-items-center ml-auto mr-md-0">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link pr-0"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img
+                    alt="Image placeholder"
+                    src="assets/img/brand/systemusers_104569.png"
+                  />
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm font-weight-bold"
+                    ><%= user.nombreUsuario %>
+                  </span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-divider"></div>
+              <a href="/logout" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- Header -->
   <!-- Header -->
   <div class="header bg-primary pb-6">
@@ -188,7 +230,7 @@
               data-toggle="modal"
               data-target="#modalCategoria"
             >
-              Agregar Categoria
+              Agregar Categoría
             </button>
             <button
               type="button"
@@ -245,7 +287,7 @@
                     <th>Precio Ven</th>
                     <th>Stock</th>
                     <th>Descripcion</th>
-                    <th>Categoria</th>
+                    <th>Categoría</th>
                     <th>Marca</th>
                   </tr>
                 </thead>
@@ -256,30 +298,9 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer pt-5">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6">
-              <div class="copyright text-center text-lg-left text-muted">
-                &copy; 2021 <a href="#" class="font-weight-bold ml-1">System</a>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul
-                class="nav nav-footer justify-content-center justify-content-lg-end"
-              >
-                <li class="nav-item">
-                  <a href="#" class="nav-link">System</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Blog</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </footer>
+    
+    <%- include('./pie.html') %>
+        
       </div>
       <!-- Page content -->
 

@@ -52,18 +52,19 @@ class Reportes {
   }
 
   getFacturas() {
-    this.fecha = document.getElementById("fecha-reporte-diario").value;
     fetch("/reportes/getFacturas", {
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
       body: JSON.stringify({
-        fecha: this.fecha,
+        fecha1: this.fecha1,
+        fecha2: this.fecha2,
       }),
     })
       .then((facturas) => facturas.json())
       .then((facturas) => {
+        console.table(facturas)
         facturas.map((factura) => {
           this.template += `
                         <tr id="${factura.id}">
